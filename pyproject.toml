@@ -14,3 +14,7 @@ classifiers = [
 ]
 license = "MIT"
 license-files = ["LICENSE*"]
+[project.optional-dependencies]
+test = ["pytest"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
