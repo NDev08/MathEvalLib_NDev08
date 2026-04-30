@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "MathEvalLib_NDev08"
+version = "0.0.1"
+description = "A library created to replace the eval() function for simple equation string parsing"
+readme = "README.md"
+authors = [{name="NDev08"}]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE*"]
