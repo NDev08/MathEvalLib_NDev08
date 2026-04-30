@@ -1,5 +1,5 @@
 import unittest
-from src.MathEvalLib_NDev08 import MathEvalLib
+from MathEvalLib_NDev08 import MathEvalLib
 
 class TestAdditionSubtraction(unittest.TestCase):
     def setUp(self):
