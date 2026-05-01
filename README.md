@@ -1,10 +1,10 @@
 # MathEvalLib
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
 ## Description
-This library alows for the solving of math equasions inputed as strings. I made this becuse i the eval function was to dangorus to use and had fetures i didn't need.\
-This is a library i am writing to make a calculator app from scratch(Not completed yet) and i didn't want to use alredy existing librares.
+This library allows for the solving of math equations inputted as strings. I made this because the eval function was too dangerous to use and had features I didn't need.\
+This is a library I am writing to make a calculator app from scratch (Not completed yet) and I didn't want to use already existing libraries.
 ## How to use
-It is quite simple. Using the evaluate function with the equasion writen in string form.
+It is quite simple. Using the evaluation function with the equation written in string form.
 <pre>
 from MathEvalLib_NDev08 import MathEvalLib
 matheval = MathEvalLib()
@@ -12,8 +12,8 @@ matheval = MathEvalLib()
 matheval.evaluate("2+3-4")
 </pre>
 
-That's all. At the moment it curently suports addition, subtraction, multiplication, and division, along with exponents and parinthaces.
+That's all. At the moment it currently supports addition, subtraction, multiplication, and division, along with exponents and parentheses.
 
 ## How to contribute
 
-As of the moment **i am not exepting code contributions** (this will change in the futer), but issues and bug reports are always welcome!
+Issues and bug reports are always welcome! If you have anything you would like to add you are welcome to create an issue or make a pull request
