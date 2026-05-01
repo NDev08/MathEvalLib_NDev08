@@ -9,6 +9,7 @@ class MathEvalLib:
         if isinstance(equation, str):
             equation = equation.replace(" ", "")
             converted_equation = self.convert_to_list(equation)
+            self.check_for_error(converted_equation)
         while len(converted_equation) > 1:
             converted_equation = self.check_for_parenthesis(converted_equation)
             converted_equation = self.check_for_simble_and_exicute(converted_equation, "^", self.math_functions.evaluate_exponent)
@@ -71,3 +72,16 @@ class MathEvalLib:
                 item_list = ""
                 final_equasion.append(equation[i])
         return final_equasion
+
+    def check_for_error(self, equation):
+        if equation.count("(") != equation.count(")"):
+            raise ValueError("Mismatched parentheses")
+        i = 0
+        for char in equation:
+            if char not in "0123456789+-*/^(). ":
+                raise ValueError(f"Invalid character: {char}")
+            if char in "+-*/^" and (i == 0 or i == len(equation) - 1):
+                raise ValueError("Equation cannot start or end with an operator")
+            if char in "+-*/^" and (equation[i-1] in "+-*/^" or equation[i+1] in "+-*/^"):
+                raise ValueError("Operators cannot be adjacent")
+            i += 1
