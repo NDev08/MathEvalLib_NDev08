@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 .pytest_cache/
 src/MathEvalLib_NDev08.egg-info/
+build/
