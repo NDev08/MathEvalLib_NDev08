@@ -1,4 +1,4 @@
-from .MathFunctions import MathFunctions
+from MathFunctions import MathFunctions
 
 class MathEvalLib:
     def __init__(self):
@@ -12,11 +12,15 @@ class MathEvalLib:
             self.check_for_error(converted_equation)
         while len(converted_equation) > 1:
             converted_equation = self.check_for_parenthesis(converted_equation)
+            print(converted_equation)
             converted_equation = self.check_for_simble_and_exicute(converted_equation, "^", self.math_functions.evaluate_exponent)
+            print(converted_equation)
             converted_equation = self.check_for_both_simble_and_exicute(converted_equation, "*", "/",
                                                                         self.math_functions.evaluate_multiplication, self.math_functions.evaluate_division)
+            print(converted_equation)
             converted_equation = self.check_for_both_simble_and_exicute(converted_equation, "+", "-",
                                                                         self.math_functions.evaluate_addition, self.math_functions.evaluate_subtraction)
+            print(converted_equation)
         return converted_equation[0]
 
 
@@ -85,3 +89,7 @@ class MathEvalLib:
             if char in "+-*/^" and (equation[i-1] in "+-*/^" or equation[i+1] in "+-*/^"):
                 raise ValueError("Operators cannot be adjacent")
             i += 1
+
+if __name__ == "__main__":
+    ev = MathEvalLib()
+    print(ev.evaluate("2+21"))
