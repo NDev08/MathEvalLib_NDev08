@@ -1,4 +1,7 @@
-from MathFunctions import MathFunctions
+try:
+    from .MathFunctions import MathFunctions
+except ImportError:
+    from MathFunctions import MathFunctions
 
 class MathEvalLib:
     def __init__(self):
@@ -12,6 +15,8 @@ class MathEvalLib:
             self.check_for_error(converted_equation)
         while len(converted_equation) > 1:
             converted_equation = self.check_for_parenthesis(converted_equation)
+            print(converted_equation)
+            converted_equation = self.deal_with_negatives(converted_equation)
             print(converted_equation)
             converted_equation = self.check_for_simble_and_exicute(converted_equation, "^", self.math_functions.evaluate_exponent)
             print(converted_equation)
@@ -82,14 +87,25 @@ class MathEvalLib:
             raise ValueError("Mismatched parentheses")
         i = 0
         for char in equation:
-            if char not in "0123456789+-*/^(). ":
-                raise ValueError(f"Invalid character: {char}")
-            if char in "+-*/^" and (i == 0 or i == len(equation) - 1):
-                raise ValueError("Equation cannot start or end with an operator")
-            if char in "+-*/^" and (equation[i-1] in "+-*/^" or equation[i+1] in "+-*/^"):
-                raise ValueError("Operators cannot be adjacent")
+            for c in char:
+                
+                if c not in "0123456789+-*/^(). ":
+                    raise ValueError(f"Invalid character: {char}")
+                if char in "+*/^" and (i == 0 or i == len(equation) - 1):
+                    raise ValueError("Equation cannot start or end with an operator")
+                if char in "+*/^" and (equation[i-1] in "+-*/^"):
+                    raise ValueError("Operators cannot be adjacent")
             i += 1
+
+    def deal_with_negatives(self, equation):
+        for i in range(len(equation)-1):
+            print(i)
+            if equation[i] == "-" and (i == 0 or equation[i-1] in "+-*/^("):
+                equation[i+1] = equation[i] + equation[i+1]
+                equation[i] = "del"
+        equation = [x for x in equation if x != "del"]
+        return equation
 
 if __name__ == "__main__":
     ev = MathEvalLib()
-    print(ev.evaluate("2+21"))
+    print(ev.evaluate("-10+5+5+-2"))
