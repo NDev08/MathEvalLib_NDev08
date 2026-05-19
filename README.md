@@ -12,7 +12,7 @@ matheval = MathEvalLib()
 matheval.evaluate("2+3-4")
 </pre>
 
-That's all. At the moment it currently supports addition, subtraction, multiplication, and division, along with exponents and parentheses.
+That's all. At the moment it currently supports addition, subtraction, multiplication, and division, along with exponents and parentheses along with Negatives.
 
 ## How to contribute
 
