@@ -15,17 +15,12 @@ class MathEvalLib:
             self.check_for_error(converted_equation)
         while len(converted_equation) > 1:
             converted_equation = self.check_for_parenthesis(converted_equation)
-            print(converted_equation)
             converted_equation = self.deal_with_negatives(converted_equation)
-            print(converted_equation)
             converted_equation = self.check_for_simble_and_exicute(converted_equation, "^", self.math_functions.evaluate_exponent)
-            print(converted_equation)
             converted_equation = self.check_for_both_simble_and_exicute(converted_equation, "*", "/",
                                                                         self.math_functions.evaluate_multiplication, self.math_functions.evaluate_division)
-            print(converted_equation)
             converted_equation = self.check_for_both_simble_and_exicute(converted_equation, "+", "-",
                                                                         self.math_functions.evaluate_addition, self.math_functions.evaluate_subtraction)
-            print(converted_equation)
         return converted_equation[0]
 
 
@@ -99,7 +94,6 @@ class MathEvalLib:
 
     def deal_with_negatives(self, equation):
         for i in range(len(equation)-1):
-            print(i)
             if equation[i] == "-" and (i == 0 or equation[i-1] in "+-*/^("):
                 equation[i+1] = equation[i] + equation[i+1]
                 equation[i] = "del"
