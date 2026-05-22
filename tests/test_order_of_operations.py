@@ -1,6 +1,7 @@
 import unittest
 from MathEvalLib_NDev08 import MathEvalLib
 
+
 class TestOrderOfOperations(unittest.TestCase):
     def setUp(self):
         self.math_eval = MathEvalLib()

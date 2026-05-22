@@ -1,6 +1,7 @@
 import unittest
 from MathEvalLib_NDev08 import MathEvalLib
 
+
 class TestAdditionSubtraction(unittest.TestCase):
     def setUp(self):
         self.math_eval = MathEvalLib()
@@ -19,6 +20,7 @@ class TestAdditionSubtraction(unittest.TestCase):
         self.assertEqual(self.math_eval.evaluate("10 + 5 - 3"), 12)
         self.assertEqual(self.math_eval.evaluate("20 - 5 + 3 - 2"), 16)
         self.assertEqual(self.math_eval.evaluate("1 + 2 - 3 + 4 - 5"), -1)
+
 
 if __name__ == "__main__":
     unittest.main()

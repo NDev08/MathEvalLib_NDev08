@@ -1,6 +1,7 @@
 import unittest
 from MathEvalLib_NDev08 import MathEvalLib
 
+
 class TestMultiplicationDivision(unittest.TestCase):
     def setUp(self):
         self.math_eval = MathEvalLib()
@@ -19,6 +20,7 @@ class TestMultiplicationDivision(unittest.TestCase):
         self.assertEqual(self.math_eval.evaluate("10 * 5 / 2"), 25)
         self.assertEqual(self.math_eval.evaluate("100 / 5 * 2"), 40)
         self.assertEqual(self.math_eval.evaluate("120 / 1 * 2 / 3 * 4 / 5"), 64)
+
 
 if __name__ == "__main__":
     unittest.main()

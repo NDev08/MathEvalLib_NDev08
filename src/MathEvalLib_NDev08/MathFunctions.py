@@ -3,9 +3,8 @@ class MathFunctions:
     def __init__(self):
         pass
 
-
     def evaluate_exponent(self, number1, number2):
-        return number1 ** number2
+        return number1**number2
 
     def evaluate_multiplication(self, number1, number2):
         return number1 * number2
