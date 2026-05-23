@@ -17,7 +17,7 @@ matheval = MathEvalLib()
 print(matheval.evaluate("2+3-4"))
 ```
 
-That's all. At the moment it currently supports addition, subtraction, multiplication, and division, along with exponents and parentheses along with Negatives.
+That's all. At the moment it currently supports addition, subtraction, multiplication, and division, along with exponents, parentheses and Negatives.
 
 ## Features 
 
