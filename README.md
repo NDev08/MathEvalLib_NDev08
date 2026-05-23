@@ -1,5 +1,6 @@
 # MathEvalLib
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ## Description
 This library allows for the solving of math equations inputted as strings. I made this because the eval function was too dangerous to use and had features I didn't need.\
 This is a library I am writing to make a calculator app from scratch (Not completed yet) and I didn't want to use already existing libraries.
