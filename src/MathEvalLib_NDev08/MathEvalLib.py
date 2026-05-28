@@ -77,7 +77,7 @@ class MathEvalLib:
         item_list: str = ""
         final_equation = []
         for i in range(len(equation)):
-            if equation[i] in "0123456789":
+            if equation[i] in "0123456789.":
                 item_list += equation[i]
                 if i == len(equation) - 1:
                     final_equation.append(item_list)
@@ -91,17 +91,19 @@ class MathEvalLib:
     def check_for_error(self, equation):
         if equation.count("(") != equation.count(")"):
             raise ValueError("Mismatched parentheses")
-        i = 0
-        for char in equation:
-            for c in char:
-
-                if c not in "0123456789+-*/^(). ":
-                    raise ValueError(f"Invalid character: {char}")
-                if char in "+*/^" and (i == 0 or i == len(equation) - 1):
-                    raise ValueError("Equation cannot start or end with an operator")
-                if char in "+*/^" and (equation[i - 1] in "+-*/^"):
-                    raise ValueError("Operators cannot be adjacent")
-            i += 1
+        for index, char in enumerate(equation):
+            if not all(c in "0123456789.+-*/^() " for c in char):
+                raise ValueError(f"Invalid character: {char}")
+            if char in "+-*/^" and (index == 0 or index == len(equation) - 1):
+                if index == 0 and char == "-":
+                    if equation[1] in "+-*/^":
+                        raise ValueError(f"Operator {char} cannot be at the start of the equation")
+                    continue
+                raise ValueError(f"Operator {char} cannot be at the start or end of the equation")
+            if char in "+*/^" and index > 0 and equation[index - 1] in "+-*/^":
+                raise ValueError(f"Operator {char} cannot follow another operator")
+            if char == "-" and index > 0 and index < len(equation) - 2 and equation[index - 1] == "-" and equation[index + 1] == "-":
+                raise ValueError(f"Operator {char} cannot follow another operator")
 
     def deal_with_negatives(self, equation):
         for i in range(len(equation) - 1):
