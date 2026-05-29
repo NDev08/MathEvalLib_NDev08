@@ -3,7 +3,7 @@ requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "MathEvalLib_NDev08"
-version = "0.0.1"
+version = "0.1.0a1"
 description = "A library created to replace the eval() function for simple equation string parsing"
 readme = "README.md"
 authors = [{name="NDev08"}]
