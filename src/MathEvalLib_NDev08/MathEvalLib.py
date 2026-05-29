@@ -97,12 +97,22 @@ class MathEvalLib:
             if char in "+-*/^" and (index == 0 or index == len(equation) - 1):
                 if index == 0 and char == "-":
                     if equation[1] in "+-*/^":
-                        raise ValueError(f"Operator {char} cannot be at the start of the equation")
+                        raise ValueError(
+                            f"Operator {char} cannot be at the start of the equation"
+                        )
                     continue
-                raise ValueError(f"Operator {char} cannot be at the start or end of the equation")
+                raise ValueError(
+                    f"Operator {char} cannot be at the start or end of the equation"
+                )
             if char in "+*/^" and index > 0 and equation[index - 1] in "+-*/^":
                 raise ValueError(f"Operator {char} cannot follow another operator")
-            if char == "-" and index > 0 and index < len(equation) - 2 and equation[index - 1] == "-" and equation[index + 1] == "-":
+            if (
+                char == "-"
+                and index > 0
+                and index < len(equation) - 2
+                and equation[index - 1] == "-"
+                and equation[index + 1] == "-"
+            ):
                 raise ValueError(f"Operator {char} cannot follow another operator")
 
     def deal_with_negatives(self, equation):
