@@ -28,9 +28,8 @@ It currently supports:
 * Exponents
 * Parentheses
 * Negative Numbers
-
-## Planned Features
-* Implement decimal handling
+* Decimal Handling
+## Planned Features 
 * Make the tokenizer more robust to handle edge cases
 * Implement Sqrt 
 * functions like sine, cosine, and tangent.
