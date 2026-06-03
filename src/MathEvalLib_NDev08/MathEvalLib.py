@@ -122,8 +122,3 @@ class MathEvalLib:
                 equation[i] = "del"
         equation = [x for x in equation if x != "del"]
         return equation
-
-
-if __name__ == "__main__":
-    ev = MathEvalLib()
-    print(ev.evaluate("-10+5+5+-2"))

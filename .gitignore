@@ -5,3 +5,4 @@ __pycache__/
 .pytest_cache/
 src/MathEvalLib_NDev08.egg-info/
 build/
+dist/
