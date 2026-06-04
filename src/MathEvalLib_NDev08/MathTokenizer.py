@@ -1,22 +1,21 @@
+class Tokenizer:
 
-
-
-class Tokenizer():
-    
     def __init__(self):
-        self.tokens = ["n","s","o"]
-        self.numbers = ["1","2","3","4","5","6","7","8","9","0","."]
-        self.symbols = ["(",")","-"]
-        self.operators = ["+","*","/","^"]
+        self.tokens = ["n", "s", "o"]
+        self.numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."]
+        self.symbols = ["(", ")", "-"]
+        self.operators = ["+", "*", "/", "^"]
 
     def get_type(self, c: str) -> str:
-        if c in self.numbers: return self.tokens[0]
-        if c in self.symbols: return self.tokens[1]
-        if c in self.operators: return self.tokens[2]
+        if c in self.numbers:
+            return self.tokens[0]
+        if c in self.symbols:
+            return self.tokens[1]
+        if c in self.operators:
+            return self.tokens[2]
         return ""
 
-
-    def tokenize(self,equation:str):
+    def tokenize(self, equation: str):
         tokenized_equation = []
         token = ""
         for c in equation:
@@ -31,8 +30,6 @@ class Tokenizer():
                 token = "" + typ + c
             else:
                 token += c
-                
-            
 
         tokenized_equation.append(token)
         return tokenized_equation
@@ -40,4 +37,3 @@ class Tokenizer():
 
 if __name__ == "__main__":
     print(Tokenizer().tokenize("25+10-5(50+65^2)"))
-    
